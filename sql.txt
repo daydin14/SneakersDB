@@ -1,0 +1,123 @@
+CREATE TABLE sneakers(
+sneakerID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+sneakerType VARCHAR(30) NOT NULL,
+size VARCHAR(2) NOT NULL,
+colorway VARCHAR(30) NOT NULL,
+price FLOAT NULL
+);
+
+CREATE TABLE payments(
+paymentsID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+paymentDate VARCHAR(30) NOT NULL,
+paymentAmount VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE orders(
+orderID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+orderDate VARCHAR(30) NOT NULL,
+expectedDeliveryDate VARCHAR(30) NOT NULL,
+shippedDate VARCHAR(30) NOT NULL,
+orderStatus VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE customers(
+customerID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+firstName VARCHAR(30) NOT NULL,
+lastName VARCHAR(30) NOT NULL,
+email VARCHAR(60) NOT NULL,
+street VARCHAR(50) NOT NULL,
+city VARCHAR(40) NOT NULL,
+state CHAR(2) NOT NULL DEFAULT "PA",
+zipCode INT(5) UNSIGNED NOT NULL,
+phoneNumber VARCHAR(20) NOT NULL,
+sex ENUM('M','F') NOT NULL
+);
+
+CREATE TABLE manufacturer(
+manufacturerID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+manufacuterName VARCHAR(30) NOT NULL,
+manufacturerLocation VARCHAR(50) NOT NULL,
+manufacturerRevenue VARCHAR(30) NOT NULL
+);
+
+INSERT INTO sneakers VALUES(NULL, 'Athletic', '7', 'Red', 79.99);
+INSERT INTO sneakers VALUES(NULL, 'Plimsoll', '8', 'Blue', 89.99); 
+INSERT INTO sneakers VALUES(NULL, 'High Top Basketball', '6', 'Purple', 79.99);
+INSERT INTO sneakers VALUES(NULL, 'Synthetic', '12', 'White', 179.99);
+INSERT INTO sneakers VALUES(NULL, 'Leather', '10', 'Gold', 160.00);
+INSERT INTO sneakers VALUES(NULL, 'Canvas', '6', 'Green', 65.00);
+INSERT INTO sneakers VALUES(NULL, 'Textile Blend', '7', 'Black', 49.99);
+INSERT INTO sneakers VALUES(NULL, 'Slip-ON', '5', 'Pink', 39.99);
+INSERT INTO sneakers VALUES(NULL, 'Designer', '9', 'White', 199.99);
+INSERT INTO sneakers VALUES(NULL, 'Synthetic', '11', 'Red', 139.99);
+INSERT INTO sneakers VALUES(NULL, 'Canvas', '14', 'Navy', 49.99);
+INSERT INTO sneakers VALUES(NULL, 'Designer', '12', 'Teal', 179.99);
+INSERT INTO sneakers VALUES(NULL, 'Athletic', '13', 'Gray', 89.99);
+
+
+INSERT INTO payments VALUES(NULL, '10/30/18', 69.99);
+INSERT INTO payments VALUES(NULL, '11/15/18', 79.99);
+INSERT INTO payments VALUES(NULL, '12/2/18', 149.99);
+INSERT INTO payments VALUES(NULL, '1/5/19', 179.99);
+INSERT INTO payments VALUES(NULL, '2/12/19', 49.99);
+INSERT INTO payments VALUES(NULL, '3/18/19', 169.99);
+INSERT INTO payments VALUES(NULL, '4/9/19', 65.00);
+INSERT INTO payments VALUES(NULL, '5/3/19', 139.99);
+INSERT INTO payments VALUES(NULL, '6/26/19', 89.99);
+INSERT INTO payments VALUES(NULL, '7/21/19', 149.99);
+INSERT INTO payments VALUES(NULL, '8/4/19', 199.99);
+INSERT INTO payments VALUES(NULL, '9/16/19', 69.99);
+INSERT INTO payments VALUES(NULL, '10/23/19', 49.99);
+
+
+INSERT INTO orders VALUES(NULL, '10/30/19', '11/4/19', '10/31/19', 'Delivered');
+INSERT INTO orders VALUES(NULL, '11/16/19', '11/20/19', '11/16/19', 'In Route');
+INSERT INTO orders VALUES(NULL, '3/23/19', '3/24/19', '3/29/19', 'Delivered');
+INSERT INTO orders VALUES(NULL, '11/19/19', '11/26/19', '11/19/19', 'Pending');
+INSERT INTO orders VALUES(NULL, '11/20/19', '12/1/19', '11/20/19', 'Awaiting Payment');
+INSERT INTO orders VALUES(NULL, '9/14/19', '9/16/19', '9/14/19', 'Delivered');
+INSERT INTO orders VALUES(NULL, '11/19/19', '11/26/19', '11/19/19', 'Pending');
+INSERT INTO orders VALUES(NULL, '10/30/19', '11/4/19', '11/18/19', 'In Route');
+INSERT INTO orders VALUES(NULL, '11/3/19', '11/4/19', '11/18/19', 'In Route');
+INSERT INTO orders VALUES(NULL, '8/21/19', '8/28/19', '8/25/19', 'Delivered');
+INSERT INTO orders VALUES(NULL, '10/18/19', '10/20/19', '10/31/19', 'Delivered');
+INSERT INTO orders VALUES(NULL, '12/13/19', '12/29/19', '12/14/19', 'Awaiting Payment');
+INSERT INTO orders VALUES(NULL, '11/19/19', '11/26/19', '11/19/19', 'Pending');
+
+
+INSERT INTO customers VALUES(NULL, 'Dale', 'Cooper', 'dcooper@aol.com', 
+	'123 Main St', 'Yakima', 'WA', 98901, '792-223-8901', 'M');
+INSERT INTO customers VALUES(NULL, 'Harry', 'Truman', 'htruman@aol.com', 
+	'202 South St', 'Vancouver', 'WA', 98660, '792-223-9810', 'M');
+INSERT INTO customers VALUES(NULL, 'Shelly', 'Johnson', 'sjohnson@aol.com', 
+	'9 Pond Rd', 'Sparks', 'NV', 89431, '792-223-6734', 'F');
+INSERT INTO customers VALUES(NULL, 'Bobby', 'Briggs', 'bbriggs@aol.com', 
+	'14 12th St', 'San Diego', 'CA', 92101, '792-223-6178', 'M');
+INSERT INTO customers VALUES(NULL, 'Donna', 'Hayward', 'dhayward@aol.com', 
+	'120 16th St', 'Davenport', 'IA', 52801, '792-223-2001', 'F');
+INSERT INTO customers VALUES(NULL, 'Audrey', 'Horne', 'ahorne@aol.com', 
+	'342 19th St', 'Detroit', 'MI', 48222, '792-223-2001', 'F');
+INSERT INTO customers VALUES(NULL, 'James', 'Hurley', 'jhurley@aol.com', 
+	'2578 Cliff St', 'Queens', 'NY', 11427, '792-223-1890', 'M');
+INSERT INTO customers VALUES(NULL, 'Lucy', 'Moran', 'lmoran@aol.com', 
+	'178 Dover St', 'Hollywood', 'CA', 90078, '792-223-9678', 'F');
+INSERT INTO customers VALUES(NULL, 'Tommy', 'Hill', 'thill@aol.com', 
+	'672 High Plains', 'Tucson', 'AZ', 85701, '792-223-1115', 'M');
+INSERT INTO customers VALUES(NULL, 'Andy', 'Brennan', 'abrennan@aol.com', 
+	'281 4th St', 'Jacksonville', 'NC', 28540, '792-223-8902', 'M');
+
+
+INSERT INTO manufacturer VALUES(NULL, 'Nike', 'Beaverton, Oregon', '1,000,000');
+INSERT INTO manufacturer VALUES(NULL, 'Balenciaga', 'Los Angeles, California', '500,000');
+INSERT INTO manufacturer VALUES(NULL, 'Fila', 'Italy', '250,000');
+INSERT INTO manufacturer VALUES(NULL, 'Prada', 'Italy', '130,000');
+INSERT INTO manufacturer VALUES(NULL, 'Adidas', 'Germany', '1,000,000');
+INSERT INTO manufacturer VALUES(NULL, 'Puma', 'Germany', '310,000');
+INSERT INTO manufacturer VALUES(NULL, 'Reebok', 'Boston, Massachusetts', '210,000');
+INSERT INTO manufacturer VALUES(NULL, 'Converse', 'California', '160,000');
+INSERT INTO manufacturer VALUES(NULL, 'Vans', 'Santa Ana, California', '600,000');
+INSERT INTO manufacturer VALUES(NULL, 'New Balance', 'Boston, Massachusetts', '440,000');
+INSERT INTO manufacturer VALUES(NULL, 'Air Jordan', 'Beaverton, Oregon', '875,000');
+INSERT INTO manufacturer VALUES(NULL, 'Skechers', 'Manhattan Beach, California', '89,000');
+INSERT INTO manufacturer VALUES(NULL, 'Yeezy', 'Germany', '700,000');
+INSERT INTO manufacturer VALUES(NULL, 'Crocs', 'Niwut, Colorado', '420,000');
